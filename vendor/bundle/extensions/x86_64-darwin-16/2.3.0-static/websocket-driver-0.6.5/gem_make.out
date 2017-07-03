@@ -1,0 +1,15 @@
+current directory: /Users/ryoka/Documents/Rails/TodoManagement/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+/Users/ryoka/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20170703-28871-1lwk7pi.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ryoka/Documents/Rails/TodoManagement/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /Users/ryoka/Documents/Rails/TodoManagement/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/ryoka/Documents/Rails/TodoManagement/vendor/bundle/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 websocket_mask.bundle ./.gem.20170703-28871-117dn7h
