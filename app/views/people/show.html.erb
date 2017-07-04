@@ -1,2 +1,13 @@
 <h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<p><%= @msg %></p>
+<pre>
+<table>
+    <tr><th>Name</th>
+        <td><%= @user.name %></td></tr>
+    <tr><th>Mail</th>
+        <td><%= @user.mail %></td></tr>
+    <tr><th>Password</th>
+        <td><%= @user.password %></td></tr>
+    </tr>
+</table>
+</pre>

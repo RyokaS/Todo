@@ -1,2 +1,16 @@
 <h1>People#edit</h1>
-<p>Find me in app/views/people/edit.html.erb</p>
+<p><%= @msg %></p>
+<table>
+    <%= form_for(@user, url:{controller:'people', action:'edit', id:@user.id}) do |form| %>
+    <tr><th>Name</th>
+        <td><%= form.text_field :name %></td></tr>
+    <tr><th>Main</th>
+        <td><%= form.text_field :mail %></td></tr>
+    <tr><th>Password</th>
+        <td><%= form.password_field :password %></td></tr>
+    </tr>
+    <tr><th></th>
+        <td><%= form.submit "Click" %></td></tr>
+    </tr>
+    <% end %>
+</table>

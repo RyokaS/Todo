@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  create: MyText
+  charge: MyText
+  status: MyText
+  limit: 1
+
+two:
+  content: MyText
+  create: MyText
+  charge: MyText
+  status: MyText
+  limit: 1
