@@ -1,0 +1,31 @@
+<h1><%= @msg %></h1>
+<pre>
+<table>
+    <tr><th>Content</th>
+        <td><%= @tsk.content %></td></tr>
+    <tr><th>Charger</th>
+        <td><%= @tsk.charger %></td>
+        <td><a href="/people/<%= @user.id %>">ユーザーIDは<%= @user.id %></a<td/></tr>
+    <tr><th>Creater</th>
+        <td><%= @tsk.ceater %></td>
+        <td><a href="/people">ユーザーに飛んでみる</a<td/></tr>
+    <tr><th>Limit</th>
+        <td><%= @tsk.limit %></td></tr>
+    <tr><th>Status</th>
+        <td><%= @tsk.status %></td></tr>
+    <td><a href="edit/<%= @tsk.id %>">Edit</a></td>
+    <td><a href="javascript:delDate(<%= @tsk.id %>);">Delete</a></td>
+    </tr>
+</table>
+</pre>
+
+<table>
+<script>
+    function delDate (num){
+        if(confirm("このタスクを削除しますか?")){
+            document.lication = '/todo/delete/' + num;
+        }
+        return false;
+    }
+</script>
+</table>

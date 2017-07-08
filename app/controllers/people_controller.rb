@@ -18,6 +18,7 @@ class PeopleController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save then
+      session[:user_id] = @user.id
       redirect_to '/people'
     else
       @msg = "入力に問題があります"
@@ -40,6 +41,29 @@ class PeopleController < ApplicationController
     obj = User.find(params[:id])
     obj.destroy
     redirect_to '/people'
+  end
+
+  def login_form
+    @msg = "ログイン"
+  end
+
+  def login
+    @msg = "ログイン"
+    @user = User.find_by(mail: params[:mail], password: params[:password])
+    if @user then
+      flash[:notice] = "ログインしました"
+      session[:user_id] = @user.id
+      redirect_to '/todo'
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @mail = params[:email]
+      @password = params[:password]
+      render '/people/login_form'
+    end
+  end
+
+  def logout
+    @user = User.find(params[:id])
   end
 
   private

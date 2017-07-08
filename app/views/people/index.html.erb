@@ -1,18 +1,20 @@
-<h1>People#index</h1>
-<p><%= @msg %></p>
+<h1><%= @msg %></h1>
 <table>
     <tr>
-        <th>Id</th><th>Name</th><th></th>
+        <th>Name</th><th></th>
     </tr>
 
     <% @user.each do |obj| %>
     <tr>
-        <td><%= obj.id %></td>
         <td><a href="people/<%= obj.id %>"><%= obj.name %></a></td>
         <td><a href="people/edit/<%= obj.id %>">Edit</a></td>
         <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
     </tr>
     <% end %>
+    <tr>
+        <td><a href="people/add">Add</a></td>
+        <td><a href="people/login">Login</a></td>
+    </tr>
 <table>
 <script>
     function delDate (num){

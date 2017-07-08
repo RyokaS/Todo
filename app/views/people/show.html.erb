@@ -1,5 +1,4 @@
-<h1>People#show</h1>
-<p><%= @msg %></p>
+<h1><%= @msg %></h1>
 <pre>
 <table>
     <tr><th>Name</th>
@@ -8,6 +7,18 @@
         <td><%= @user.mail %></td></tr>
     <tr><th>Password</th>
         <td><%= @user.password %></td></tr>
+    <td><a href="edit/<%= @user.id %>">Edit</a></td>
+    <td><a href="javascript:delDate(<%= @user.id %>);">Delete</a></td>
     </tr>
 </table>
 </pre>
+<table>
+<script>
+    function delDate (num){
+        if(confirm("このデータを削除しますか?")){
+            document.location =  '/people/delete/' + num;
+        }
+        return false;
+    }
+</script>
+</table>

@@ -1,0 +1,83 @@
+<h1><%= @msg %></h1>
+<table>
+    <% todo = Array.new(Task.count) %>
+    <% num = 0 %>
+
+    <!--配列todo[Task.count]に@tsk.limitを入れていく-->
+    <% @tsk.each do |obj| %>
+    <% todo[num]=obj.limit %>
+    <!--配列の番号 num-->
+    <%= num %><br>
+    <%= todo[num] %><br>
+    <% num+=1 %>
+    <% end %>
+    <!--配列todo[]完成-->
+    <br>
+    <br>
+    <!--ここからバブルソート-->
+
+
+    <tr>
+        <th>状態</th><th>内容</th><th></th>
+    </tr>
+    <% @tsk.each do |obj| %>
+    <% if obj.limit != nil %>
+    <% if obj.status == "ToDo" then %>
+    <tr><th>ToDo</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+
+    <% elsif obj.status == "Doing" then%>
+    <tr><th>Doing</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+
+    <% elsif obj.status == "Done" then%>
+    <tr><th>Done</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+    <% end %>
+    <% else %>
+    <% if obj.status == "ToDo" then %>
+    <tr><th>ToDo</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+
+    <% elsif obj.status == "Doing" then%>
+    <tr><th>Doing</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+
+    <% elsif obj.status == "Done" then%>
+    <tr><th>Done</th>
+        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+    </tr>
+    <% end %>
+    <% end %>
+    <% end %>
+    <tr>
+        <td><a href="todo/add">Add</a></td>
+    </tr>
+
+<table>
+<script>
+    function delDate (num){
+        if(confirm("このタスクを削除しますか?")){
+            document.lication = '/todo/delete/' + num;
+        }
+        return false;
+    }
+</script>
+</table>

@@ -1,0 +1,20 @@
+<h1><%= @msg %></h1>
+<table>
+    <%= form_for(@tsk, url:{controller:'todo', action:'edit'}) do |form| %>
+    <tr><th>タスク内容</th>
+        <td><%= form.text_field :content %></td></tr>
+    <tr><th>担当ユーザー</th>
+        <td><%= form.text_field :charger %></td></tr>
+        <tr><th>作成ユーザー</th>
+        <td><%= form.text_field :ceater %></td></tr>
+    <tr><th>状態</th>
+        <!--<td><%= select_tag('status', options_for_select(["ToDo", "Doing", "Done"])) %></td></tr>-->
+        <!--<% @tsk.status = params['status'] %>-->
+        <td><%= form.text_field :status %></td></tr>
+    <tr><th>期限</th>
+        <td><%= form.text_field :limit %></td></tr>
+    </tr>
+    <tr><th></th>
+        <td><%= form.submit "Click" %></td></tr>
+    <% end %>
+</table>

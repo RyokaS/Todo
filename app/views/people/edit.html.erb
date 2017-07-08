@@ -1,5 +1,4 @@
-<h1>People#edit</h1>
-<p><%= @msg %></p>
+<h1><%= @msg %></h1>
 <table>
     <%= form_for(@user, url:{controller:'people', action:'edit', id:@user.id}) do |form| %>
     <tr><th>Name</th>

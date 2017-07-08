@@ -1,0 +1,23 @@
+<h1><%= @msg %></h1>
+<table>
+    <% if @error_message %>
+        <div calss="form-error">
+            <%= @error_message %>
+        </div>
+    <% end %>
+    <%= form_tag("/people/login") do %>
+    <p>メールアドレス</p>
+        <input name="mail" value="<%= @mail %>"><br>
+    <p>パスワード</p>
+        <input type="password" name="password" value="<%= @password %>">
+        <input type="submit" value="ログイン">
+    <% end %>
+</table>
+
+
+
+ <% if @error_message %>
+        <div class="form-error">
+        <%= @error_message %>
+        </div>
+    <% end %>
