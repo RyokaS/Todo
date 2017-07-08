@@ -41,7 +41,6 @@ end
   def show
     @msg = "ToDoタスク情報"
     @tsk = Task.find(params[:id])
-    @user = User.find(params[:id])
     # charge = @tsk.charger
     #  for charge do @user.id
     #   if @tsk.charger == @user.name then

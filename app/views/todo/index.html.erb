@@ -2,69 +2,35 @@
 <table>
     <% todo = Array.new(Task.count) %>
     <% num = 0 %>
-
-    <!--配列todo[Task.count]に@tsk.limitを入れていく-->
     <% @tsk.each do |obj| %>
     <% todo[num]=obj.limit %>
-    <!--配列の番号 num-->
-    <%= num %><br>
-    <%= todo[num] %><br>
     <% num+=1 %>
     <% end %>
-    <!--配列todo[]完成-->
-    <br>
-    <br>
+
     <!--ここからバブルソート-->
-
-
+    <% for i in 1..num do %>
+        <% for j in 1..(num-i) %>
+            <% if todo[j-1]<todo[j] then %>
+                <% t = todo[j] %>
+                <% todo[j] = todo[j-1] %>
+                <% todo[j-1] = t %>
+            <% end %>
+        <% end %>
+    <% end %>
     <tr>
         <th>状態</th><th>内容</th><th></th>
     </tr>
+
     <% @tsk.each do |obj| %>
-    <% if obj.limit != nil %>
-    <% if obj.status == "ToDo" then %>
-    <tr><th>ToDo</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-
-    <% elsif obj.status == "Doing" then%>
-    <tr><th>Doing</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-
-    <% elsif obj.status == "Done" then%>
-    <tr><th>Done</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-    <% end %>
-    <% else %>
-    <% if obj.status == "ToDo" then %>
-    <tr><th>ToDo</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-
-    <% elsif obj.status == "Doing" then%>
-    <tr><th>Doing</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-
-    <% elsif obj.status == "Done" then%>
-    <tr><th>Done</th>
-        <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
-        <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
-        <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-    </tr>
-    <% end %>
+    <% for i in 0..num do %>
+        <% if todo[num-i]==obj.limit then %>
+            <td><%= obj.status %></td>
+            <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
+            <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
+            <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+            </tr>
+            <% todo[num-i] %>
+        <% end %>
     <% end %>
     <% end %>
     <tr>
