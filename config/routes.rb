@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'people/add', to:'people#add'
   post 'people/add', to:'people#create'
 
+  post 'logout', to:'users#logout'
+
   get 'people/edit/:id', to:'people#edit'
   patch 'people/edit/:id', to:'people#update'
   post 'people/edit/:id', to:'people#update'

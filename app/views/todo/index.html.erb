@@ -2,6 +2,7 @@
 <table>
     <% todo = Array.new(Task.count) %>
     <% num = 0 %>
+
     <% @tsk.each do |obj| %>
     <% todo[num]=obj.limit %>
     <% num+=1 %>
@@ -17,6 +18,7 @@
             <% end %>
         <% end %>
     <% end %>
+
     <tr>
         <th>状態</th><th>内容</th><th></th>
     </tr>
@@ -28,6 +30,7 @@
             <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
             <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
             <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
+            <td><%= obj.limit %></td>
             </tr>
             <% todo[num-i] %>
         <% end %>
@@ -36,12 +39,11 @@
     <tr>
         <td><a href="todo/add">Add</a></td>
     </tr>
-
 <table>
 <script>
     function delDate (num){
-        if(confirm("このタスクを削除しますか?")){
-            document.lication = '/todo/delete/' + num;
+        if(confirm("このデータを削除しますか?")){
+            document.location =  '/todo/delete/' + num;
         }
         return false;
     }

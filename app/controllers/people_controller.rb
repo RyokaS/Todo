@@ -7,7 +7,7 @@ class PeopleController < ApplicationController
 
   def show
     @msg = "ユーザー情報"
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def add
@@ -63,7 +63,9 @@ class PeopleController < ApplicationController
   end
 
   def logout
-    @user = User.find(params[:id])
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to '/people'
   end
 
   private

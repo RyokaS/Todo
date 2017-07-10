@@ -1,4 +1,13 @@
 <h1><%= @msg %></h1>
+
+<% @tsk_1.each do |obj| %>
+    <% if obj.charger==@user.name %>
+        <%= "@user" %>
+        <%= i = @user.id %>
+    <% end %>
+<% end %>
+
+
 <pre>
 <table>
     <tr><th>Content</th>
@@ -7,22 +16,22 @@
         <td><%= @tsk.charger %></td>
     <tr><th>Creater</th>
         <td><%= @tsk.ceater %></td>
-        <td><a href="/people">ユーザーに飛んでみる</a<td/></tr>
+        <!--<td><a href="/people">ユーザーに飛んでみる</a<td/></tr>-->
     <tr><th>Limit</th>
         <td><%= @tsk.limit %></td></tr>
     <tr><th>Status</th>
         <td><%= @tsk.status %></td></tr>
     <td><a href="edit/<%= @tsk.id %>">Edit</a></td>
     <td><a href="javascript:delDate(<%= @tsk.id %>);">Delete</a></td>
+    <td><a href="/todo">Back</a></td>
     </tr>
 </table>
 </pre>
-
 <table>
 <script>
     function delDate (num){
-        if(confirm("このタスクを削除しますか?")){
-            document.lication = '/todo/delete/' + num;
+        if(confirm("このデータを削除しますか?")){
+            document.location =  '/todo/delete/' + num;
         }
         return false;
     }

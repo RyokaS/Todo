@@ -6,6 +6,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <td><a href="/todo">Todoリスト</a></td>
+    <td><a href="/people">ユーザーリスト</a></td>
+    <% if session[:user_id] then %>
+    <td><a href="/people/logout">ログアウト</a></td>
+    <%= session[:user_id] %>
+    <% else %>
+    <td><a href="/people/login">ログイン</a></td>
+    <td><a href="/people/add">新規ユーザー登録</a></td>
+    <% end %>
   </head>
 
   <body>
