@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'home/index'
+  get 'home/show'
+
+  root to: "home#index"
+  devise_for :users
   get 'todo', to:'todo#index'
 
   get 'todo/add'
@@ -20,7 +25,8 @@ Rails.application.routes.draw do
   get 'people/add', to:'people#add'
   post 'people/add', to:'people#create'
 
-  post 'logout', to:'users#logout'
+  get 'people/logout', to:'people#logout'
+  post 'people/logout', to:'people#logout'
 
   get 'people/edit/:id', to:'people#edit'
   patch 'people/edit/:id', to:'people#update'

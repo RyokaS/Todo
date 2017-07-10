@@ -49,7 +49,7 @@ class PeopleController < ApplicationController
 
   def login
     @msg = "ログイン"
-    @user = User.find_by(mail: params[:mail], password: params[:password])
+    @user = User.find_by(email: params[:email])
     if @user then
       flash[:notice] = "ログインしました"
       session[:user_id] = @user.id
@@ -57,7 +57,6 @@ class PeopleController < ApplicationController
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       @mail = params[:email]
-      @password = params[:password]
       render '/people/login_form'
     end
   end
@@ -70,7 +69,7 @@ class PeopleController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :password, :mail)
+    params.require(:user).permit(:name, :email)
   end
   
 end

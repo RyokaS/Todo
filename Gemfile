@@ -21,6 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'pg', '0.20.0'
 
+gem 'devise'
+
 
 
 # Use CoffeeScript for .coffee assets and views

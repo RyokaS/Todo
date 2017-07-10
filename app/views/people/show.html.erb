@@ -1,16 +1,16 @@
 <h1><%= @msg %></h1>
 <pre>
 <table>
+    <% if @user != nil %>
     <tr><th>Name</th>
         <td><%= @user.name %></td></tr>
     <tr><th>Mail</th>
-        <td><%= @user.mail %></td></tr>
-    <tr><th>Password</th>
-        <td><%= @user.password %></td></tr>
+        <td><%= @user.email %></td></tr>
     <td><a href="edit/<%= @user.id %>">Edit</a></td>
     <td><a href="javascript:delDate(<%= @user.id %>);">Delete</a></td>
     <td><a href="/people">Back</a></td>
     </tr>
+    <% end %>
 </table>
 </pre>
 <table>

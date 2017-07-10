@@ -55,7 +55,7 @@ class TodoController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:content, :charger, :ceater, :status, :limit)
+    params.require(:task).permit(:content, :charger, :creater, :status, :limit)
   end
   
 end

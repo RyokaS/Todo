@@ -8,7 +8,6 @@
     <% num+=1 %>
     <% end %>
 
-    <!--ここからバブルソート-->
     <% for i in 1..num do %>
         <% for j in 1..(num-i) %>
             <% if todo[j-1]<todo[j] then %>
@@ -30,7 +29,6 @@
             <td><a href="todo/<%= obj.id %>"><%= obj.content %></a></td>
             <td><a href="todo/edit/<%= obj.id %>">Edit</a></td>
             <td><a href="javascript:delDate(<%= obj.id %>);">Delete</a></td>
-            <td><%= obj.limit %></td>
             </tr>
             <% todo[num-i] %>
         <% end %>
